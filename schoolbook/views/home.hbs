@@ -1,0 +1,126 @@
+
+<body id="home">
+    <h1 style="text-align: center; margin-bottom: 1em">Schoolbook <i class="fa fa-pencil" aria-hidden="true"></i></h1>
+    <nav class="homemenubar">
+        <a id="hometab" class="active">Home</a>
+        <a id="agendatab">Agenda Pad</a>
+        <a id="notebooktab">Notebooks</a>
+        <a>My Profile</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <!--The home section when home is clicked -->
+    <section class="homesection" id="homesection">
+
+        <h3 style="margin-bottom: 20px">Hello {{user.firstname}}</h3>
+        <h5>Today is {{date}}</h5>
+        <!--<h5>Reminders:</h5>-->
+
+    </section>
+    <!--The agenda pad section when agenda pad is clicked-->
+    <section class="agendasection hide"  id="agendasection">
+        <h5>Today is {{date}}</h5>
+        <div id="reminderTable" class="reminderTable">
+            <h6 style="text-align: center">Reminders&nbsp;&nbsp;<i id="addReminder" class="fa fa-plus" aria-hidden="true"></i></h6>
+            <form method="post" class="reminderListForm hide" id="reminderListForm" action="/delete-reminder">
+                <ul id="reminderList"></ul>
+                <input type="submit" value="Done!" id="doneBtn">
+            </form>
+
+        </div>
+    </section>
+    <section class="notebooksection hide" id="notebooksection">
+        <div id="editorandtoolbar">
+            <div id="mynotebooks">
+                <h3 style="text-align: center">My Notebooks <i id="addNotebook" class="fa fa-plus" aria-hidden="true"></i></h3>
+                <table id="notebooks" style="width: 100%">
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Year</th>
+                        <th>More</th>
+                    </tr>
+
+                </table>
+            </div>
+            <div id="mydocuments" class="hide">
+                <h3 style="text-align: center"><i class="fa fa-arrow-left"  id="backToNotebooks" aria-hidden="true"></i> My Documents</h3>
+                <ul id="listOfDocs"></ul>
+            </div>
+            <div id="docsinnoteb" class="hide">
+                <ul></ul>
+            </div>
+            <!-- Create the editor container -->
+            <div id="toolbar">
+                <!-- Add buttons as you would before -->
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <select class="ql-color"></select>
+                <select class="ql-font"></select>
+                <select class="ql-background"></select>
+                <button class="ql-code"></button>
+                <button class="ql-link"></button>
+                <button class="ql-strike"></button>
+                <button class="ql-list"><i class="fa fa-list" aria-hidden="true"></i></button>
+                <button class="ql-underline"></button>
+                <select class="ql-header"></select>
+                <select class="ql-align"></select>
+                <button class="ql-formula"></button>
+                <button class="ql-image"></button>
+                <button class="ql-video"></button>
+
+                <!-- But you can also add your own -->
+                <button id="custom-button2" ><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                <button id="custom-button"><i class="fa fa-file-o" aria-hidden="true"></i></button>
+
+
+
+
+
+            </div>
+
+            <div id="editor">
+                <p>Write something...</p>
+                <!-- Initialize Quill editor -->
+
+            </div>
+
+            <div id="addDocumentModal" class="addDocumentModal">
+                <!--The content in the modal-->
+                <div class="model-content">
+                    <form>
+                        <input type="text" id="noteName" placeholder="notebook name">
+                        <input type="text" id="documentName" placeholder="document name">
+                        <input type="submit" value="add" id="docModalAddBtn">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div id="addNotebookModal" class="addNotebookModal">
+        <!--The content in the modal-->
+        <div class="model-content">
+            <form>
+                <input type="text" id="notebookName" placeholder="notebook name">
+                <input type="number" id="notebookYear" placeholder="2016">
+                <input type="submit" value="add" id="noteModalAddBtn">
+            </form>
+        </div>
+    </div>
+
+    <!--Below: The modal that will be displayed to add reminder -->
+    <div id="addReminderModal" class="addReminderModal">
+        <!--The content in the modal-->
+        <div class="model-content">
+            <form>
+                <input type="text" id="userReminderText" placeholder="reminder">
+                <input type="date" id="userReminderDate">
+                <input type="submit" value="Add" id="modalAddBtn">
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="/javascripts/external.js"></script>
+
+
+
